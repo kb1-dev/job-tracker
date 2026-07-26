@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           java-version: '17'
           distribution: 'temurin'
@@ -26,3 +26,9 @@ jobs:
 
       - name: Run integration tests
         run: mvn failsafe:integration-test failsafe:verify
+
+      - name: Debug Maven cache
+        run: |
+          mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
+          ls -ld ~/.m2 || true
+          ls -ld ~/.m2/repository || true
