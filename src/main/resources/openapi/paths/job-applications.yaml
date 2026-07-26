@@ -1,0 +1,46 @@
+post:
+  description: Create a new job application
+  tags:
+    - applications
+  operationId: create
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/ApplicationDto.yaml'
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/ApplicationDto.yaml'
+
+get:
+  description: List job applications, paginated and filterable
+  tags:
+    - applications
+  operationId: list
+  parameters:
+    - name: applicationFilterDto
+      in: query
+      required: false
+      style: form
+      explode: true
+      schema:
+        $ref: '../components/schemas/ApplicationFilterDto.yaml'
+    - name: pageable
+      in: query
+      required: true
+      style: form
+      explode: true
+      schema:
+        $ref: '../components/schemas/Pageable.yaml'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/ApplicationPage.yaml'

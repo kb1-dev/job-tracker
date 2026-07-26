@@ -1,0 +1,25 @@
+patch:
+  description: Update an interview (outcome, notes, schedule)
+  tags:
+    - interviews
+  operationId: update
+  parameters:
+    - name: interviewId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/InterviewUpdateDto.yaml'
+  responses:
+    '200':
+      description: Updated
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/InterviewDto.yaml'

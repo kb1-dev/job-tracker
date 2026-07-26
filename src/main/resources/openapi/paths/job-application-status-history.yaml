@@ -1,0 +1,21 @@
+get:
+  description: Retrieve the status history of a job application
+  tags:
+    - applications
+  operationId: getStatusHistory
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: Status history retrieved
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/ApplicationStatusHistoryDto.yaml'

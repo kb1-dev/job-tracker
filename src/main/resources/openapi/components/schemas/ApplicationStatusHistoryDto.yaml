@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  applicationId:
+    type: string
+    format: uuid
+  status:
+    $ref: './ApplicationStatus.yaml'
+  note:
+    type: string
+  changedAt:
+    type: string
+    format: date-time

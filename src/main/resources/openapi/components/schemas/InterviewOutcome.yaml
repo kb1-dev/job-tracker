@@ -1,0 +1,6 @@
+type: string
+enum:
+  - PENDING
+  - PASSED
+  - FAILED
+  - CANCELLED

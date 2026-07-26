@@ -1,0 +1,13 @@
+type: object
+properties:
+  round:
+    type: string
+  scheduledAt:
+    type: string
+    format: date-time
+  interviewerName:
+    type: string
+  outcome:
+    $ref: './InterviewOutcome.yaml'
+  notes:
+    type: string

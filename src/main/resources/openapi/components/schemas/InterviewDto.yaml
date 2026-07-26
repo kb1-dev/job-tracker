@@ -1,0 +1,25 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+  applicationId:
+    type: string
+    format: uuid
+  round:
+    type: string
+  scheduledAt:
+    type: string
+    format: date-time
+  interviewerName:
+    type: string
+  outcome:
+    $ref: './InterviewOutcome.yaml'
+  notes:
+    type: string
+  createdAt:
+    type: string
+    format: date-time
+  updatedAt:
+    type: string
+    format: date-time

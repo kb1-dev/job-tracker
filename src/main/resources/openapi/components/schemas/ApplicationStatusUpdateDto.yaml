@@ -1,0 +1,11 @@
+type: object
+description: Payload for updating a job application's status
+required:
+  - status
+properties:
+  status:
+    $ref: './ApplicationStatus.yaml'
+  note:
+    type: string
+    description: Optional note about this status change (e.g. reason for rejection, interview outcome)
+    maxLength: 1000

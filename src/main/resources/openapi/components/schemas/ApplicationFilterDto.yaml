@@ -1,0 +1,15 @@
+type: object
+properties:
+  status:
+    type: array
+    items:
+      $ref: './ApplicationStatus.yaml'
+  company:
+    type: string
+    description: Case-insensitive partial match on company name
+  appliedDateFrom:
+    type: string
+    format: date
+  appliedDateTo:
+    type: string
+    format: date

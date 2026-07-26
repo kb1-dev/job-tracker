@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: job-tracker
+
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:job_tracker}
+    username: ${DB_USERNAME:job_tracker_user}
+    password: ${DB_PASSWORD:job_tracker_user}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      # "validate" on purpose: schema changes must come from a Flyway migration,
+      # never from Hibernate auto-generating DDL. Keeps prod and portfolio-demo
+      # environments predictable.
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    url: /openapi/api.yml
+
+
+logging:
+  level:
+    org.springframework.security: INFO

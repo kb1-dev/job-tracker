@@ -1,0 +1,30 @@
+type: object
+required:
+  - company
+  - title
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  company:
+    type: string
+    example: Acme Corp
+  title:
+    type: string
+    example: Backend Engineer
+  status:
+    $ref: './ApplicationStatus.yaml'
+  appliedDate:
+    type: string
+    format: date
+  notes:
+    type: string
+  createdAt:
+    type: string
+    format: date-time
+    readOnly: true
+  updatedAt:
+    type: string
+    format: date-time
+    readOnly: true

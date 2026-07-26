@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: Job Application Tracker API
+  version: 1.0.0
+paths:
+  /applications:
+    $ref: './paths/job-applications.yaml'
+  /applications/{id}/status:
+    $ref: './paths/job-application-status.yaml'
+  /applications/{id}/status-history:
+    $ref: './paths/job-application-status-history.yaml'
+  /applications/{id}/interviews:
+    $ref: './paths/interviews.yaml'
+  /interviews/{id}:
+    $ref: './paths/interview-detail.yaml'

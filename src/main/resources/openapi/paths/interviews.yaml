@@ -1,0 +1,47 @@
+post:
+  description: Schedule an interview for a job application
+  tags:
+    - interviews
+  operationId: create
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../components/schemas/InterviewCreateDto.yaml'
+  responses:
+    '201':
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../components/schemas/InterviewDto.yaml'
+
+get:
+  description: List interviews for a job application
+  tags:
+    - interviews
+  operationId: list
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../components/schemas/InterviewDto.yaml'

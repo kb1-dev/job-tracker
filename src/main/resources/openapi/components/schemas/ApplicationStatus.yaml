@@ -1,0 +1,8 @@
+type: string
+enum:
+  - APPLIED
+  - PHONE_SCREEN
+  - INTERVIEW
+  - OFFER
+  - REJECTED
+  - GHOSTED
