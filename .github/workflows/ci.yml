@@ -21,14 +21,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Ensure M2 repository directory exists
+        run: mkdir -p ~/.m2/repository
+
       - name: Run unit tests
         run: mvn -B test
 
       - name: Run integration tests
         run: mvn -B failsafe:integration-test failsafe:verify
-
-      - name: Debug Maven cache
-        run: |
-          mvn help:evaluate -Dexpression=settings.localRepository -q -DforceStdout
-          ls -ld ~/.m2 || true
-          ls -ld ~/.m2/repository || true
