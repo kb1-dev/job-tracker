@@ -22,10 +22,10 @@ jobs:
           cache: maven
 
       - name: Run unit tests
-        run: mvn test
+        run: mvn -B test
 
       - name: Run integration tests
-        run: mvn failsafe:integration-test failsafe:verify
+        run: mvn -B failsafe:integration-test failsafe:verify
 
       - name: Debug Maven cache
         run: |
